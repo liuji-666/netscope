@@ -25,26 +25,74 @@ $ netscope check example.com
 
 ## Install
 
-### Pre-built Binaries
+### 📦 Pre-built Binaries (Recommended)
 
+**Linux (x86_64)**
 ```bash
-# Linux (x86_64)
-curl -L https://github.com/liuji666/netscope/releases/latest/download/netscope-x86_64-unknown-linux-musl.tar.gz | tar xz
+curl -L https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-unknown-linux-musl.tar.gz | tar xz
 sudo mv netscope /usr/local/bin/
-
-# macOS (x86_64)
-curl -L https://github.com/liuji666/netscope/releases/latest/download/netscope-x86_64-apple-darwin.tar.gz | tar xz
-mv netscope /usr/local/bin/
-
-# Windows (x86_64)
-# Download from: https://github.com/liuji666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip
 ```
 
-### From Source
-
+**macOS (x86_64)**
 ```bash
+curl -L https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-apple-darwin.tar.gz | tar xz
+mv netscope /usr/local/bin/
+```
+
+**Windows (x86_64)**
+
+**PowerShell (推荐)**
+```powershell
+# 创建安装目录
+mkdir -p "$env:USERPROFILE\.local\bin"
+
+# 下载并解压
+Invoke-WebRequest -Uri "https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip" -OutFile "netscope.zip"
+Expand-Archive -Path "netscope.zip" -DestinationPath "$env:USERPROFILE\.local\bin" -Force
+Remove-Item "netscope.zip"
+
+# 添加到 PATH（临时）
+$env:PATH += ";$env:USERPROFILE\.local\bin"
+
+# 添加到 PATH（永久，需要重启终端）
+[Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";$env:USERPROFILE\.local\bin", "User")
+```
+
+**手动安装**
+1. 下载：https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip
+2. 解压到任意目录
+3. 将解压目录添加到系统 PATH
+
+### 🛠️ From Source (需要 Rust 环境)
+
+**前置条件**
+- Rust 1.70+ (推荐使用 rustup 安装)
+- Cargo (Rust 包管理器，随 Rust 安装)
+
+**安装 Rust (首次安装)**
+```bash
+# Linux/macOS
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Windows (PowerShell)
+Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile rustup-init.exe
+.\rustup-init.exe -y
+```
+
+**构建并安装**
+```bash
+# 克隆仓库
+git clone https://github.com/liuji-666/netscope.git
+cd netscope
+
+# 构建发布版本
 cargo build --release
+
+# 安装到系统
 cargo install --path .
+
+# 或者直接运行
+./target/release/netscope --help
 ```
 
 ## Quick Start
@@ -161,6 +209,16 @@ netscope --completions fish > ~/.config/fish/completions/netscope.fish
 - ✅ **Continuous Integration**: GitHub Actions runs on every push/pull request
 - ✅ **Automated Releases**: Tagged releases automatically build binaries for Linux/macOS/Windows
 - ✅ **Format & Lint Checks**: Enforces code quality standards
+
+## 🍵 Buy me a cup of tea
+
+If you find NetScope useful and want to support the project, consider buying me a cup of tea!
+
+- **Alipay**: liuji666@example.com
+- **WeChat**: liuji666
+- **GitHub Sponsors**: [https://github.com/sponsors/liuji-666](https://github.com/sponsors/liuji-666)
+
+Your support keeps this project going! ☕
 
 ## License
 
