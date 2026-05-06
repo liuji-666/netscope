@@ -1,10 +1,10 @@
 # 🔭 NetScope
 
-**Modern network diagnostics CLI** — One command for full network analysis.
+**Modern network diagnostics CLI** — One command for full network analysis, and find the optimal network addresses for you.
 
-Built with Rust. Single binary. Zero configuration.
+Built with Rust. Single binary,Zero configuration.
 
----
+***
 
 ## Why NetScope?
 
@@ -44,34 +44,37 @@ $ netscope check example.com
 
 ### 🎯 Killer Features
 
-| Feature | Description |
-|---------|-------------|
-| **DNS Optimizer** | One-click find and configure the fastest DNS |
+| Feature               | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| **DNS Optimizer**     | One-click find and configure the fastest DNS     |
 | **Mirror Speed Test** | Test GitHub/Docker/PyPI mirror speeds in seconds |
-| **Site Entry Test** | Find the fastest entrance for any website |
-| **Smart Diagnosis** | Automated scoring with detailed suggestions |
+| **Site Entry Test**   | Find the fastest entrance for any website        |
+| **Smart Diagnosis**   | Automated scoring with detailed suggestions      |
 
----
+***
 
 ## Install
 
 ### 📦 Pre-built Binaries (Recommended)
 
-**Linux (x86_64)**
+**Linux (x86\_64)**
+
 ```bash
 curl -L https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-unknown-linux-musl.tar.gz | tar xz
 sudo mv netscope /usr/local/bin/
 ```
 
-**macOS (x86_64)**
+**macOS (x86\_64)**
+
 ```bash
 curl -L https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-apple-darwin.tar.gz | tar xz
 mv netscope /usr/local/bin/
 ```
 
-**Windows (x86_64)**
+**Windows (x86\_64)**
 
 **PowerShell (Recommended)**
+
 ```powershell
 # Create install directory
 mkdir -p "$env:USERPROFILE\.local\bin"
@@ -89,17 +92,20 @@ $env:PATH += ";$env:USERPROFILE\.local\bin"
 ```
 
 **Manual Installation**
-1. Download: https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip
+
+1. Download: <https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip>
 2. Extract to any directory
 3. Add the directory to system PATH
 
 ### 🛠️ From Source (Requires Rust)
 
 **Prerequisites**
+
 - Rust 1.70+ (install via rustup)
 - Cargo (included with Rust)
 
 **Install Rust (first time)**
+
 ```bash
 # Linux/macOS
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -110,6 +116,7 @@ Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile rustup-init.exe
 ```
 
 **Build and Install**
+
 ```bash
 # Clone repository
 git clone https://github.com/liuji-666/netscope.git
@@ -125,7 +132,7 @@ cargo install --path .
 ./target/release/netscope --help
 ```
 
----
+***
 
 ## Quick Start
 
@@ -149,29 +156,30 @@ netscope check example.com --json | jq '.score'
 netscope check example.com --md > report.md
 ```
 
----
+***
 
 ## Commands
 
-| Command | Description | Status |
-|---------|-------------|--------|
-| `check` | ★ Full-chain diagnosis (DNS + Ping + Route + Ports + HTTP) | ✅ |
-| `ping` | Enhanced ping with stats and colored output | ✅ |
-| `trace` | Traceroute (limited without admin) | ⚠️ Basic |
-| `dns` | DNS records + multi-resolver comparison | ✅ |
-| `port` | TCP port scan + service identification | ✅ |
-| `http` | HTTP timing breakdown (DNS→TCP→TLS→TTFB→Total) | ✅ |
-| `speed` | Latency/jitter test (bandwidth requires server) | ⚠️ Limited |
-| `myip` | Public IP information | ✅ |
-| `report` | Full Markdown diagnosis report | ✅ |
-| `optimize` | ★ Find and configure the best DNS server | ✅ |
-| `mirror` | ★ Test mirror speeds for GitHub/Docker/PyPI/etc | ✅ |
-| `site` | ★ Test multiple entry points for any website | ✅ |
-| `batch` | ★ Batch test multiple URLs | ✅ |
-| `interactive` | ★ Guided network diagnosis | ✅ |
-| `config` | ★ Configuration management | ✅ |
+| Command       | Description                                                | Status     |
+| ------------- | ---------------------------------------------------------- | ---------- |
+| `check`       | ★ Full-chain diagnosis (DNS + Ping + Route + Ports + HTTP) | ✅          |
+| `ping`        | Enhanced ping with stats and colored output                | ✅          |
+| `trace`       | Traceroute (limited without admin)                         | ⚠️ Basic   |
+| `dns`         | DNS records + multi-resolver comparison                    | ✅          |
+| `port`        | TCP port scan + service identification                     | ✅          |
+| `http`        | HTTP timing breakdown (DNS→TCP→TLS→TTFB→Total)             | ✅          |
+| `speed`       | Latency/jitter test (bandwidth requires server)            | ⚠️ Limited |
+| `myip`        | Public IP information                                      | ✅          |
+| `report`      | Full Markdown diagnosis report                             | ✅          |
+| `optimize`    | ★ Find and configure the best DNS server                   | ✅          |
+| `mirror`      | ★ Test mirror speeds for GitHub/Docker/PyPI/etc            | ✅          |
+| `site`        | ★ Test multiple entry points for any website               | ✅          |
+| `batch`       | ★ Batch test multiple URLs                                 | ✅          |
+| `interactive` | ★ Guided network diagnosis                                 | ✅          |
+| `config`      | ★ Configuration management                                 | ✅          |
 
 **Legend**:
+
 - ✅ Fully functional
 - ⚠️ Limited functionality (see notes below)
 
@@ -186,7 +194,7 @@ netscope check example.com --md > report.md
 - **Concurrency limits**: Port scanning has built-in concurrency limits (max 200) to prevent network abuse.
 - **No root required**: Most operations work without administrator privileges.
 
----
+***
 
 ## Configuration
 
@@ -206,7 +214,7 @@ netscope config add https://github.com
 netscope config clear
 ```
 
----
+***
 
 ## Shell Completion
 
@@ -225,7 +233,7 @@ source ~/.netscope-completion.zsh
 netscope --completions fish > ~/.config/fish/completions/netscope.fish
 ```
 
----
+***
 
 ## CI/CD
 
@@ -233,18 +241,17 @@ netscope --completions fish > ~/.config/fish/completions/netscope.fish
 - ✅ **Automated Releases**: Tagged releases automatically build binaries for Linux/macOS/Windows
 - ✅ **Format & Lint Checks**: Enforces code quality standards
 
----
+***
 
 ## 🍵 Support This Project
 
 If NetScope saves you time and headaches, consider buying me a coffee!
 
-
 - **GitHub Sponsors**: [github.com/sponsors/liuji-666](https://github.com/sponsors/liuji-666)
 
 Your support keeps this project going! ☕
 
----
+***
 
 ## License
 
