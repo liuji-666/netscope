@@ -2,6 +2,8 @@
 
 **Modern network diagnostics CLI** — One command for full network analysis.
 
+Built with Rust. Single binary. Zero configuration.
+
 ---
 
 ## Why NetScope?
@@ -237,7 +239,7 @@ netscope --completions fish > ~/.config/fish/completions/netscope.fish
 
 If NetScope saves you time and headaches, consider buying me a coffee!
 
-- **支付宝**: 打开支付宝 → 搜索 "liuji666" → 打赏
+
 - **GitHub Sponsors**: [github.com/sponsors/liuji-666](https://github.com/sponsors/liuji-666)
 
 Your support keeps this project going! ☕
