@@ -1,8 +1,6 @@
 # 🔭 NetScope
 
-**Modern network diagnostics CLI — one command, full picture.**
-
-Written in Rust. Single binary. Zero config.
+**Modern network diagnostics CLI** — One command for full network analysis.
 
 ---
 
@@ -10,7 +8,7 @@ Written in Rust. Single binary. Zero config.
 
 **Before:** `ping` → `traceroute` → `dig` → `curl` → manually correlate
 
-**After:** `netscope check example.com` — one command, full picture
+**After:** `netscope check example.com` — One command, full picture
 
 ```bash
 $ netscope check example.com
@@ -33,23 +31,23 @@ $ netscope check example.com
 
 ### ✨ Key Features
 
-- 🚀 **Fast**: Rust-powered, sub-second results for most commands
-- 🔒 **Secure**: No root required for most operations, private IP scanning blocked
-- 📊 **Comprehensive**: DNS, ping, port scan, HTTP analysis, TLS check
-- 🎯 **Intelligent**: Automatic scoring and diagnostic suggestions
+- 🚀 **Blazing Fast**: Rust-powered for sub-second results
+- 🔒 **Secure**: No root required, private IP protection
+- 📊 **Comprehensive**: DNS, ping, port scan, HTTP, TLS analysis
+- 🎯 **Intelligent**: 100-point scoring with actionable suggestions
 - 🌐 **Practical**: DNS optimization, mirror testing, site entry testing
-- 📱 **Multi-platform**: Linux, macOS, Windows supported
-- 🌍 **Multi-language**: English/Chinese support with first-run setup wizard
-- 💾 **Config persistence**: Save preferences and cached results
+- 📱 **Cross-platform**: Linux, macOS, Windows native support
+- 🌍 **Multi-language**: English/Chinese with setup wizard
+- 💾 **Persistent**: Save preferences and cached results
 
 ### 🎯 Killer Features
 
 | Feature | Description |
 |---------|-------------|
-| **DNS Optimizer** | One-click find and configure the fastest DNS server |
+| **DNS Optimizer** | One-click find and configure the fastest DNS |
 | **Mirror Speed Test** | Test GitHub/Docker/PyPI mirror speeds in seconds |
 | **Site Entry Test** | Find the fastest entrance for any website |
-| **Smart Diagnosis** | 100-point scoring with detailed suggestions |
+| **Smart Diagnosis** | Automated scoring with detailed suggestions |
 
 ---
 
@@ -239,21 +237,8 @@ netscope --completions fish > ~/.config/fish/completions/netscope.fish
 
 If NetScope saves you time and headaches, consider buying me a coffee!
 
-### Recommended Platforms
-
-| Platform | Pros | Cons |
-|----------|------|------|
-| **[爱发电 (Afdian)](https://afdian.net/)** | ✅ 国内平台，人民币结算，适合国内用户 | 需要申请审核 |
-| **[GitHub Sponsors](https://github.com/sponsors/liuji-666)** | ✅ 国际认可，操作简单 | 国内用户使用不便 |
-| **[Buy Me a Coffee](https://www.buymeacoffee.com/)** | ✅ 国际平台，界面美观 | 国内用户使用不便 |
-
-### How to Set Up
-
-1. **爱发电 (Afdian)**: Visit [afdian.net](https://afdian.net/) → 创建创作者 → 绑定收款方式
-2. **GitHub Sponsors**: Visit [github.com/sponsors/liuji-666](https://github.com/sponsors/liuji-666) → 点击 "Sponsor"
-3. **Buy Me a Coffee**: Visit [buymeacoffee.com](https://www.buymeacoffee.com/) → 创建页面
-
-> 💡 **Tip**: For Chinese users, **爱发电 (Afdian)** is the most convenient option as it supports RMB payments and Chinese payment methods.
+- **支付宝**: 打开支付宝 → 搜索 "liuji666" → 打赏
+- **GitHub Sponsors**: [github.com/sponsors/liuji-666](https://github.com/sponsors/liuji-666)
 
 Your support keeps this project going! ☕
 
