@@ -4,6 +4,14 @@
 
 Written in Rust. Single binary. Zero config.
 
+---
+
+## Why NetScope?
+
+**Before:** `ping` → `traceroute` → `dig` → `curl` → manually correlate
+
+**After:** `netscope check example.com` — one command, full picture
+
 ```bash
 $ netscope check example.com
 
@@ -23,6 +31,28 @@ $ netscope check example.com
 ╚══════════════════════════════════════════════════════════╝
 ```
 
+### ✨ Key Features
+
+- 🚀 **Fast**: Rust-powered, sub-second results for most commands
+- 🔒 **Secure**: No root required for most operations, private IP scanning blocked
+- 📊 **Comprehensive**: DNS, ping, port scan, HTTP analysis, TLS check
+- 🎯 **Intelligent**: Automatic scoring and diagnostic suggestions
+- 🌐 **Practical**: DNS optimization, mirror testing, site entry testing
+- 📱 **Multi-platform**: Linux, macOS, Windows supported
+- 🌍 **Multi-language**: English/Chinese support with first-run setup wizard
+- 💾 **Config persistence**: Save preferences and cached results
+
+### 🎯 Killer Features
+
+| Feature | Description |
+|---------|-------------|
+| **DNS Optimizer** | One-click find and configure the fastest DNS server |
+| **Mirror Speed Test** | Test GitHub/Docker/PyPI mirror speeds in seconds |
+| **Site Entry Test** | Find the fastest entrance for any website |
+| **Smart Diagnosis** | 100-point scoring with detailed suggestions |
+
+---
+
 ## Install
 
 ### 📦 Pre-built Binaries (Recommended)
@@ -41,35 +71,35 @@ mv netscope /usr/local/bin/
 
 **Windows (x86_64)**
 
-**PowerShell (推荐)**
+**PowerShell (Recommended)**
 ```powershell
-# 创建安装目录
+# Create install directory
 mkdir -p "$env:USERPROFILE\.local\bin"
 
-# 下载并解压
+# Download and extract
 Invoke-WebRequest -Uri "https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip" -OutFile "netscope.zip"
 Expand-Archive -Path "netscope.zip" -DestinationPath "$env:USERPROFILE\.local\bin" -Force
 Remove-Item "netscope.zip"
 
-# 添加到 PATH（临时）
+# Add to PATH (temporary)
 $env:PATH += ";$env:USERPROFILE\.local\bin"
 
-# 添加到 PATH（永久，需要重启终端）
+# Add to PATH (permanent, requires terminal restart)
 [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";$env:USERPROFILE\.local\bin", "User")
 ```
 
-**手动安装**
-1. 下载：https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip
-2. 解压到任意目录
-3. 将解压目录添加到系统 PATH
+**Manual Installation**
+1. Download: https://github.com/liuji-666/netscope/releases/latest/download/netscope-x86_64-pc-windows-msvc.zip
+2. Extract to any directory
+3. Add the directory to system PATH
 
-### 🛠️ From Source (需要 Rust 环境)
+### 🛠️ From Source (Requires Rust)
 
-**前置条件**
-- Rust 1.70+ (推荐使用 rustup 安装)
-- Cargo (Rust 包管理器，随 Rust 安装)
+**Prerequisites**
+- Rust 1.70+ (install via rustup)
+- Cargo (included with Rust)
 
-**安装 Rust (首次安装)**
+**Install Rust (first time)**
 ```bash
 # Linux/macOS
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -79,21 +109,23 @@ Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile rustup-init.exe
 .\rustup-init.exe -y
 ```
 
-**构建并安装**
+**Build and Install**
 ```bash
-# 克隆仓库
+# Clone repository
 git clone https://github.com/liuji-666/netscope.git
 cd netscope
 
-# 构建发布版本
+# Build release
 cargo build --release
 
-# 安装到系统
+# Install to system
 cargo install --path .
 
-# 或者直接运行
+# Or run directly
 ./target/release/netscope --help
 ```
+
+---
 
 ## Quick Start
 
@@ -116,6 +148,8 @@ netscope check example.com --json | jq '.score'
 # Markdown report
 netscope check example.com --md > report.md
 ```
+
+---
 
 ## Commands
 
@@ -152,22 +186,7 @@ netscope check example.com --md > report.md
 - **Concurrency limits**: Port scanning has built-in concurrency limits (max 200) to prevent network abuse.
 - **No root required**: Most operations work without administrator privileges.
 
-## Why NetScope?
-
-**Before:** `ping` → `traceroute` → `dig` → `curl` → manually correlate
-
-**After:** `netscope check example.com` — one command, full picture
-
-## Features
-
-- 🚀 **Fast**: Rust-powered, sub-second results for most commands
-- 🔒 **Secure**: No root required for most operations, private IP scanning blocked
-- 📊 **Comprehensive**: DNS, ping, port scan, HTTP analysis, TLS检查
-- 🎯 **Intelligent**: Automatic scoring and diagnostic suggestions
-- 🌐 **Practical**: DNS optimization, mirror testing, site entry testing
-- 📱 **Multi-platform**: Linux, macOS, Windows supported
-- 🌍 **Multi-language**: English/Chinese support with first-run setup wizard
-- 💾 **Config persistence**: Save preferences and cached results
+---
 
 ## Configuration
 
@@ -187,6 +206,8 @@ netscope config add https://github.com
 netscope config clear
 ```
 
+---
+
 ## Shell Completion
 
 NetScope supports shell auto-completion for bash, zsh, and fish.
@@ -204,21 +225,39 @@ source ~/.netscope-completion.zsh
 netscope --completions fish > ~/.config/fish/completions/netscope.fish
 ```
 
+---
+
 ## CI/CD
 
 - ✅ **Continuous Integration**: GitHub Actions runs on every push/pull request
 - ✅ **Automated Releases**: Tagged releases automatically build binaries for Linux/macOS/Windows
 - ✅ **Format & Lint Checks**: Enforces code quality standards
 
-## 🍵 Buy me a cup of tea
+---
 
-If you find NetScope useful and want to support the project, consider buying me a cup of tea!
+## 🍵 Support This Project
 
-- **Alipay**: liuji666@example.com
-- **WeChat**: liuji666
-- **GitHub Sponsors**: [https://github.com/sponsors/liuji-666](https://github.com/sponsors/liuji-666)
+If NetScope saves you time and headaches, consider buying me a coffee!
+
+### Recommended Platforms
+
+| Platform | Pros | Cons |
+|----------|------|------|
+| **[爱发电 (Afdian)](https://afdian.net/)** | ✅ 国内平台，人民币结算，适合国内用户 | 需要申请审核 |
+| **[GitHub Sponsors](https://github.com/sponsors/liuji-666)** | ✅ 国际认可，操作简单 | 国内用户使用不便 |
+| **[Buy Me a Coffee](https://www.buymeacoffee.com/)** | ✅ 国际平台，界面美观 | 国内用户使用不便 |
+
+### How to Set Up
+
+1. **爱发电 (Afdian)**: Visit [afdian.net](https://afdian.net/) → 创建创作者 → 绑定收款方式
+2. **GitHub Sponsors**: Visit [github.com/sponsors/liuji-666](https://github.com/sponsors/liuji-666) → 点击 "Sponsor"
+3. **Buy Me a Coffee**: Visit [buymeacoffee.com](https://www.buymeacoffee.com/) → 创建页面
+
+> 💡 **Tip**: For Chinese users, **爱发电 (Afdian)** is the most convenient option as it supports RMB payments and Chinese payment methods.
 
 Your support keeps this project going! ☕
+
+---
 
 ## License
 
